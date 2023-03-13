@@ -23,4 +23,14 @@ To run the tests simply run the command:
 
 In this case, we are picking the block number `16820728` as at the time of writing this, the DSR proposal was yet to be submitted. You can pick any block number before the proposal was submitted.
 
+## Test Summary
 
+A fork of the Ethereum Mainnet is created at block `16820728`, where we simulate the effects of the DSR proposal.
+
+During the setup, the Reinstate DSR proposal is created and sent to the Compound Governor Bravo as if it was as submitted by a large COMP stakeholder. Then, acting as other COMP stakeholders, the proposal is voted on and the time is forwarded to the point where the proposal is ready to be queued. The proposal then gets queued and after more time passes, it finally gets executed.
+
+Once the proposal is executed, the first tests validate that the DSR is now active for cDAI by verifying that the Implementation for `cDAI` is the `cDAIDelegateAddress` and that its interest rate is calculated by the `DAIIRModelAddress`. Balances are also validated to ensure that the DSR is working as expected.
+
+Tests are now run to ensure that the `cDAI` contract is functioning as normal, by executing `borrow`, `repayBorrow`, `mint` and `reedem`  transactions while ensuing that the balances are updated correctly.
+
+Finally, DSR interest rate calculations are also tested to ensure that they are correct and that `cDAI` users are being rewarded with the `DSR` yield alongside the normal `cDAI` yields.
