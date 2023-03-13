@@ -1,2 +1,26 @@
 # compound-re-enable-dsr-proposal
-Foundry simulation for Compound Proposal for re-enabling MakerDAO DSR
+
+This repository contains Foundry tests for a Compound proposal that reinstates Dai Savings Rates for cDAI. Previously, cDAI was connected to MakerDAO's Dai Savings Rate (DSR) which was set at 0.01% yield by Maker Governance at the time. Since the yield was too low, the Compound team passed a proposal which removed the support for the DSR in an effort to save gas. Recently, Maker has reinstated the DSR's yield at an annualized 1%. This is independent of the amount of DAI deposited. For this reason, this proposal is intended to reactivate the DSR for cDAI.
+
+
+## How to run the tests
+
+**1. Clone the repository** 
+
+`git clone git@github.com:OpenZeppelin/compound-re-enable-dsr-proposal.git`
+
+**2. Export the RPC_URL env var** 
+
+Because this test requires forking the Ethereum Mainnet, you will need a valid RPC Endpoint. You can get a free RPC URL from Alchemy or Infura.
+
+`export RPC_URL=https://eth-mainnet.g.alchemy.com/v2/<Your Token>`
+
+**3. Run the tests** 
+
+To run the tests simply run the command:
+
+`forge test --fork-url $RPC_URL --fork-block-number 16820728`
+
+In this case, we are picking the block number `16820728` as at the time of writing this, the DSR proposal was yet to be submitted. You can pick any block number before the proposal was submitted.
+
+
