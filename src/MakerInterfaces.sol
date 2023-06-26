@@ -1,4 +1,4 @@
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.10;
 
 /*** Maker Interfaces ***/
 
@@ -84,4 +84,18 @@ interface DaiJoinLike {
     function join(address, uint256) external payable;
 
     function exit(address, uint256) external;
+}
+
+
+interface JugLike {
+    // --- Data ---
+    // struct Ilk {
+    //     uint256 duty;
+    //     uint256  rho;
+    // }
+
+    // mapping (bytes32 => Ilk) public ilks;
+    function ilks(bytes32) external returns (uint256, uint256);
+    // uint256 public base;
+    function base() external returns (uint256);
 }

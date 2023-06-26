@@ -241,6 +241,9 @@ contract CErc20Storage {
 
 abstract contract CErc20Interface is CTokenInterface {
 
+    // Getters
+    function underlying() virtual external returns(address);
+    
     /*** User Interface ***/
 
     function mint(uint mintAmount) virtual external returns (uint);
@@ -292,4 +295,25 @@ abstract contract CDelegateInterface is CDelegationStorage {
      * @notice Called by the delegator on a delegate to forfeit its responsibility
      */
     function _resignImplementation() virtual external;
+}
+
+
+abstract contract CDaiDelegate is CErc20Interface {
+  function daiJoinAddress() external virtual returns(address);
+  function potAddress() external virtual returns(address);
+  function vatAddress() external virtual returns(address);
+}
+
+
+
+abstract contract CEther is CTokenInterface, TokenErrorReporter  {
+  function mint() virtual external payable;
+  function redeem(uint) virtual external returns (uint);
+  function redeemUnderlying(uint) virtual  external returns (uint);
+  function borrow(uint) virtual external returns (uint);
+  function repayBorrow() virtual external payable;
+  function repayBorrowBehalf(address) virtual external payable;
+  function liquidateBorrow(address, address) virtual external payable; // second param is cToken
+  function _addReserves() virtual external payable returns (uint);
+  receive() virtual external payable;
 }

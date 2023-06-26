@@ -27,8 +27,4 @@ abstract contract InterestRateModel {
       * @return The supply rate per block (as a percentage, and scaled by 1e18)
       */
     function getSupplyRate(uint cash, uint borrows, uint reserves, uint reserveFactorMantissa) virtual external view returns (uint);
-
-    function dsrPerBlock() virtual external view returns (uint256);
-
-    function blocksPerYear() virtual external view returns (uint256);
 }

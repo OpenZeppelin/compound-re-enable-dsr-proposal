@@ -69,4 +69,11 @@ abstract contract ComptrollerInterface {
         address cTokenBorrowed,
         address cTokenCollateral,
         uint repayAmount) virtual external view returns (uint, uint);
+
+    /*** Storage getters ***/
+    function admin() virtual external returns(address);
+    function oracle() virtual external returns(address);
+
+    /*** Admin functions ***/
+    function _setPriceOracle(address) virtual external returns (uint);
 }

@@ -9,19 +9,17 @@ This repository contains Foundry tests for a Compound proposal that reinstates D
 
 `git clone git@github.com:OpenZeppelin/compound-re-enable-dsr-proposal.git`
 
-**2. Export the RPC_URL env var** 
+**2. Set or export the RPC_MAINNET env var** 
 
-Because this test requires forking the Ethereum Mainnet, you will need a valid RPC Endpoint. You can get a free RPC URL from Alchemy or Infura.
+We run these tests against Ethereum Mainnet. So foundry will need to know what RCP endpoint to use. You can set your the RCP directly in `foundry.toml` or set your environment variable `RPC_MAINNET` to it instead. You can get a free RPC URL from Alchemy or Infura. An example of temporarily exporting your RCP string:
 
-`export RPC_URL=https://eth-mainnet.g.alchemy.com/v2/<Your Token>`
+`export RPC_MAINNET=https://eth-mainnet.g.alchemy.com/v2/<Your Token>`
 
 **3. Run the tests** 
 
 To run the tests simply run the command:
 
-`forge test --fork-url $RPC_URL --fork-block-number 16820728`
-
-In this case, we are picking the block number `16820728` as at the time of writing this, the DSR proposal was yet to be submitted. You can pick any block number before the proposal was submitted.
+`forge test`
 
 ## Test Summary
 
