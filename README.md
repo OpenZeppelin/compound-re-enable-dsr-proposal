@@ -11,7 +11,7 @@ This repository contains Foundry tests for a Compound proposal that reinstates D
 
 **2. Set or export the RPC_MAINNET env var** 
 
-We run these tests against Ethereum Mainnet. So foundry will need to know what RCP endpoint to use. You can set your the RCP directly in `foundry.toml` or set your environment variable `RPC_MAINNET` to it instead. You can get a free RPC URL from Alchemy or Infura. An example of temporarily exporting your RCP string:
+We run these tests against Ethereum Mainnet. So foundry will need to know what RPC endpoint to use. You can set your the RPC directly in `foundry.toml` or set your environment variable `RPC_MAINNET` to it instead. You can get a free RPC URL from Alchemy or Infura. An example of temporarily exporting your RPC string:
 
 `export RPC_MAINNET=https://eth-mainnet.g.alchemy.com/v2/<Your Token>`
 
